@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>滚动条到底部时自己加载新的内容</title>
+      <script type='text/javascript' src='jquery-1.10.2.min.js'></script>
+        <script type="text/javascript">
+          var finished=true;
+          var loadAfterLocation=0;
+          function load(){
+            console.log("加载了数据");
+            finished=true;
+          }
+          $(document).ready(function(){
+            $(window).scroll(function(){
+              console.log($(document).scrollTop());
+              if(finished && $(document).scrollTop()>loadAfterLocation && $(document).scrollTop()>=($(document).height()-$(window).height())-100){
+                loadAfterLocation=$(document).scrollTop();
+                console.log($(document).scrollTop());
+                finished=false;
+                alert(loadAfterLocation)
+                alert($('#contains').height());
+                $("#contains").css("height",$('#contains').height()+1000);
+                load();
+              }
+            })
+          })
+        </script>
+      {/literal}
+    </head>
+    <body>
+     <div>
+        <div style='width:100%;height:2500px' id="contains">文章内容</div>
+        <div class='after_div'></div>
+<div class='ajax_loading' style='background:#F0F0F0;height:60px;width:100%;text-align:center;line-height:60px;font-size:18px;display:none;position:fixed;bottom:0px'><img src="img/loadinfo.net.gif"> 数据加载中</div>
+     </div>
+    </body>
+</html>

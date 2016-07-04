@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ROTATE效果</title>
+    <style>
+body{
+    font-size: 12px;
+    background: #0099CC
+}
+
+.box{
+    position: relative;
+    width: 960px;margin: 0 auto;
+    border:1px dashed #ccc;
+    height: 560px;
+    overflow: hidden;
+    font-size:3rem;
+    text-align: center;
+    color: #fff;
+}
+
+.box::before{
+    width: 12.5rem;
+    height: 1rem;
+    z-index: 2;
+    color: #fff;
+    content: attr(data-text);
+    direction: ltr;
+    display: block;
+    font-size: 1.2rem;
+    left: -3.5rem;
+    top: 9.2rem;    
+    line-height: 1rem;
+    position: absolute;
+    text-align: right;
+    text-transform: lowercase;
+    -ms-transform:rotate(-45deg);     /* IE 9 */
+    -moz-transform:rotate(-45deg);     /* Firefox */
+    -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-45deg);     /* Opera */
+    transform:rotate(-45deg);
+    -ms-transform-origin: 0 100% 0;
+    -moz-transform-origin: 0 100% 0;
+    -webkit-transform-origin: 0 100% 0;
+    -o-transform-origin: 0 100% 0;
+    transform-origin: 0 100% 0;
+    white-space: nowrap;
+}
+
+.box::after{
+    width: 12.5rem;
+    height: 5rem;
+    z-index: 1;
+    content: '';
+    background: #F58220;
+    position: absolute;
+    left: -5rem;
+    top: 0;
+    display: block;
+    -ms-transform:rotate(-45deg);     /* IE 9 */
+    -moz-transform:rotate(-45deg);     /* Firefox */
+    -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(-45deg);     /* Opera */
+    transform:rotate(-45deg);
+    box-shadow: 0 0 2px 1px #fff
+}
+    </style>
+</head>
+<body>
+    <div class="box" data-text="ROTATE效果"></div>
+</body>
+</html>

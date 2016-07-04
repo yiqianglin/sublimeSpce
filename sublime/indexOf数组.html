@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*        var array=['q','a','b'];
+        var str='a';
+        console.log(array.indexOf(str)!=-1);
+*/
+/*        wxFunc = [];
+        wxFunc[0]=['Application','share'];
+        console.log(wxFunc);
+
+        c=1;
+        b=c++;
+        var Bridge={
+            a:c++
+        }
+        console.log(Bridge.a);
+        console.log(b);*/
+
+
+
+
+var BridgeCore_Wechat = {
+    _hasWxLoaded : false,
+    _wxFunc : {
+        Application:{
+            share:false
+        }
+    },
+    callApi : function(module, func, reqData, callback) {
+        if ((typeof BridgeCore_Wechat[module] != "object") || (typeof BridgeCore_Wechat[module][func] != "function")) {
+            console.log('没有这个API')
+            return;
+        }
+        if (!BridgeCore_Wechat._hasWxLoaded && BridgeCore_Wechat._wxFunc[module] && !BridgeCore_Wechat._wxFunc[module][func]) {
+            console.log('还在初始化API')
+        }
+        else {
+            console.log('调用API')
+        }
+    },
+    Application : {
+        _fetchLocalLogin: function() {
+            var loginInfo = localStorage.getItem("global_logined_user");
+            if (loginInfo == null) {
+                return null;
+            }
+            try {
+                loginInfo = JSON.parse(loginInfo);
+                if ((typeof loginInfo  != "object") || (typeof loginInfo.uid != "string") || (typeof loginInfo.auth != "string")) {
+                    return null;
+                }
+                return loginInfo;
+            }
+            catch(err) {
+                return null;
+            }
+        },
+        getLogin: function(reqData, callback) {
+            var loginInfo = BridgeCore_Wechat.Application._fetchLocalLogin();
+            if (loginInfo == null) {
+                return callback({status:1});
+            }
+            else {
+                return callback({status:0, data:{user:loginInfo}});
+            }
+        },
+        login: function(reqData, callback) {
+            var loginInfo = BridgeCore_Wechat.Application._fetchLocalLogin();
+            if (loginInfo == null) {
+                BridgeCore_Wechat.makeRequest('wechat/get_auth_url.sgi',reqData,function(response) {    
+                    localStorage.setItem('global_recent_location',window.location.href);
+                    window.location = response.url;    //登录后返回到loading页面，处理手机绑定。然后初始化微信jssdk
+                }, function(ret, tips) {
+                    callback({status:1});
+                });
+            }
+            else {
+                return callback({status:0, data:{user:loginInfo}});
+            }
+        },
+        share: function(shareData,callback) {
+        }
+    },
+    Mall:{
+        share:function(){
+
+        }
+    }
+}
+
+BridgeCore_Wechat.callApi('Application','share',function(){},function(){});
+    </script>
+</body>
+</html>

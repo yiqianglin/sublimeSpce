@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function outter(val){
+            var outterTemp=val;
+            return function(){
+                var innerTemp=val;
+                console.log(innerTemp)
+            }
+        }
+
+        var func=new outter('henix');
+        func();
+        console.log(outterTemp)
+    </script>
+</body>
+</html>

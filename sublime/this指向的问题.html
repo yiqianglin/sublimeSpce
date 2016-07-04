@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      function Person(name){
+        this.name=name;
+        alert(this.name);
+      }
+
+      var obj=new Object();
+      console.log(obj.__proto__)
+      obj.__proto__.func=me;
+      function me(name){
+        this.name=name;
+        alert(this.name)
+        return '回调';
+      }
+
+      console.log(obj.__proto__.func('new'))
+
+
+
+    </script>
+</body>
+</html>

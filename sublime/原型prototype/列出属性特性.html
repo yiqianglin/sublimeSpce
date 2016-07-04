@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var obj={};
+    obj.test='aaa';
+    var descriptor=Object.getOwnPropertyDescriptor(obj,'test');
+    descriptor.writable=false;
+    Object.defineProperty(obj,'test',descriptor);
+
+
+    obj.test='bbb';
+    alert(obj.test) //aaa
+
+
+
+    var descriptor2=Object.getOwnPropertyDescriptor(obj,'test');
+    descriptor.enumerable=false;
+    Object.defineProperty(obj,'test',descriptor2);
+    for (var prop in descriptor2){
+        console.log(prop+" : "+descriptor2[prop]);
+    }
+    console.log(descriptor2)
+    var names=Object.keys(descriptor2);
+    console.log(names);
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function outter(args){
+            var temp={};
+            temp.person={
+                name:'aaa',
+                age:'23'
+            }
+            return this.callee(args)
+        }
+    </script>
+</body>
+</html>

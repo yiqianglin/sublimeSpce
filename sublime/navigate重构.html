@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigate重构</title>
+</head>
+<body>
+    <script>
+        var wechat={
+            application:{
+                navigate:function(reqData){
+                    console.log(this);
+                    var urlMap={
+                        home:'/index.html',
+                        policy_list:'/palicyList.html',
+                        red_packet:'',
+                        vehicle_insurance:'',
+                        wechat:'http://www.baidu.com'
+                    };
+                    wechat.application._navigate_urlCreater(urlMap,reqData)
+                },
+                _navigate_urlCreater:function(urlMap,reqData){
+
+                    if(!!urlMap[reqData.target]){
+                        var search='?';
+                        for(i in reqData.params){
+                            search+=i+"="+reqData.params[i]+"&";
+                        }
+                        alert(urlMap[reqData.target]+search.substring(0,search.length-1));
+                    }else{
+                        //window.open('http://www.baidu.com', '_self').close();
+                        alert("window closed")
+                        //window.open('about:blank', '_self').close();
+                    }
+                    return;
+                }
+            },
+            mall:{
+                navigate:function(reqData){
+                    var urlMap={
+                        home:'/newhome.html',
+                        policy_list:'/palicyList.html',
+                        red_packet:'',
+                        vehicle_insurance:'',
+                        wechat:'http://www.baidu.com'
+                    };
+                    wechat.application._navigate_urlCreater.apply(this,[urlMap,reqData]);
+                }
+            }
+        }
+
+
+        wechat.application.navigate({target:"wechat", params:{goodsId:'12121212121212',auth:'linyiqiang'}})
+        wechat.mall.navigate({target:"home", params:{goodsId:'111',auth:'linyiqiang'}})
+        wechat.mall.navigate({target:'red_packet'})
+    </script>
+</body>
+</html>

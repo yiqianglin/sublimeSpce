@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .container{
+            display: box;
+            display: -webkit-box;
+        }
+        .left{
+            width: 200px;
+            background: red
+        }
+        .right{
+            box-flex:1;
+            -webkit-box-flex:1;
+            background: yellow
+        }
+
+        .container1{
+            width: 80%;
+            display: box;
+            display: -webkit-box;
+            background: #abcdef;
+        }
+        .label1{
+            display: block;
+            width:200px;
+        }
+        .name{
+            box-flex:1;
+            -webkit-box-flex:1;
+            display: inline-block;
+            background: yellow
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div class="container">
+        <div class="left">lllllllll</div>
+        <div class="right">right</div>
+    </div>
+    <div class="container">
+        <div class="left">left</div>
+        <div class="right">rightrightrightrightrightrightrightrightrightrightright  </div>
+    </div>
+    <div class="container1">
+        <span class="label1">姓名</span>
+        <input type="text" class="name" value="林小强">
+    </div>
+</body>
+</html>

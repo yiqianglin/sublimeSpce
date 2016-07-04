@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function testAnonymous() {
+   var a = 0;
+   var b = 1;
+   for(var i = 0; i < 10; i++) {
+      a++;
+      b++;
+      setTimeout("testDisplay(" + a + "," + b + ")",2000);
+    }
+}
+            
+function testDisplay(a,b) {
+  alert("a = " + a + "               b = " + b);            //结果非常怪异
+}
+
+testAnonymous();
+
+
+    </script>
+</body>
+</html>

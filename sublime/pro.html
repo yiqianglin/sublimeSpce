@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function Fun(name,age){
+    this.name=name;
+    this.age=age;
+}
+Fun.prototype.haha=function(){
+    return 1
+}
+var newF= new Fun("hah",11);
+console.log(newF.prototype);
+console.log(newF.__proto__==Fun.prototype);
+
+
+    </script>
+</body>
+</html>

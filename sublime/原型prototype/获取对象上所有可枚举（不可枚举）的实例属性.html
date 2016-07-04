@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Person(){
+    };
+    Person.prototype.name='Nicholas';
+    Person.prototype.age=23;
+    Person.prototype.job='engineer';
+    Person.prototype.sayName=function(){
+        alert(this.name)
+    };
+    console.log(Person.constructor)
+
+    var keys=Object.keys(Person.prototype);
+    alert(keys);        //name,age,job,sayName
+
+    var p1=new Person();
+    p1.name='henix';
+    var p1keys=Object.keys(p1);
+    alert(p1keys)       //name
+    alert(Object.keys(p1.__proto__))    //name,age,job,sayName
+
+    /* 如果想得到所有实例属性，无论它是否可以枚举 */
+    var keys=Object.getOwnPropertyNames(Person.prototype);
+    alert(keys);        //constructor,name,age,job,sayName
+    </script>
+</body>
+</html>

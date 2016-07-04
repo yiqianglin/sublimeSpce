@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*        function mytest(name){
+            alert(name);
+        };
+        var myName='henix';
+        setTimeout(mytest(myName),5000);      //这样是直接执行，不起作用
+        setTimeout("mytest('"+myName+"')",5000);      //这样可以传递字符串
+*/
+
+
+        function mytest_obj(array,func){
+            console.log(array);
+            console.log(func);
+        };
+
+        var array=[1,2,2,2,2,23,34];
+        var func=function(){alert("aaa")};
+        setTimeout("mytest_obj('"+array+"','"func"')",2000)
+
+
+
+
+    </script>
+</body>
+</html>

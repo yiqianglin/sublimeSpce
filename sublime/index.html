@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="div1">div11111</div>
+    <div><input type="text" class="input1" value="ssss"></div>
+    <input type="checkbox" class="select-btn" id="protocol-content" value="true" checked="checked">
+    <script src="jquery-1.10.2.min.js"></script>
+<script>
+    console.log($('.div1').val()||$('.div1').html())
+    console.log($('.input1').val()||$('.input').html())
+    console.log($('#protocol-content').val()||$('.input').html())
+    $('.select-btn').on('click',function(){
+        console.log($(this).is(':checked'))
+    })
+</script>
+</body>
+</html>

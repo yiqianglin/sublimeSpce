@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person={
+            _name:'henix',
+            age:23
+        };
+        Object.defineProperty(person,'name',{
+            get:function(){
+                alert("getter");
+                return this._name;
+            },
+            set:function(newName){
+                alert("setter")
+                if(newName=='linlinlin'){
+                    this._name=newName;
+                }else{
+                    this._name='error name'
+                }
+            }
+        })
+        person.name='sfkjk';
+        console.log(person._name)
+    </script>
+</body>
+</html>

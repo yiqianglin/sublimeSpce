@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    var a={realName:'0.17'};
+
+
+    var b=[];
+    b[0]=JSON.parse(JSON.stringify(a));
+    b[1]=JSON.parse(JSON.stringify(a));
+    b[2]=111;
+    b[3]=JSON.parse(JSON.stringify(a));
+
+
+    console.log(b);
+    b.splice(2,1);
+    console.log(b)
+    </script>
+</body>
+</html>

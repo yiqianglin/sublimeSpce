@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var person={};
+    Object.defineProperty(person,'name',{
+        value:'henix'
+    });
+
+    console.log(person.name)
+    console.log(Object.getOwnPropertyDescriptor(person,'name'))
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+(function(){
+       var a=[{id:1},{id:2},{id:3},{id:4}];
+       for(var i=0;i<3;i++){
+           setTimeout(function(){start(a[i])},5);
+       }
+       alert(i);
+})()
+function start(obj){ alert(obj.id);}        //3,4,4,4 是因为在执行的时候，js的循环会导致线程的阻塞，同时会跳过setTimeout的执行语句。
+
+    </script>
+</body>
+</html>
